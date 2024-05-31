@@ -46,7 +46,7 @@ class _ManageProductDialogState extends State<ManageProductDialog> {
     return AlertDialog(
       scrollable: true,
       title: Text(
-        widget.product != null ? "Mahsulotni tahrirlash" : "Mahsulot qo'shish",
+        widget.product != null ? "Todoni tahrirlash" : "Todo qo'shish",
       ),
       content: Form(
         key: formKey,
@@ -57,55 +57,17 @@ class _ManageProductDialogState extends State<ManageProductDialog> {
               initialValue: title,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: "Mahsulot nomi",
+                labelText: "todo nomi",
               ),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return "Iltimos mahsulot nomini kiriting";
+                  return "Iltimos todo nomini kiriting";
                 }
 
                 return null;
               },
               onSaved: (newValue) {
                 title = newValue!;
-              },
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              initialValue: price.toString(),
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Mahsulot narxini",
-              ),
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return "Iltimos mahsulot narxini kiriting";
-                }
-
-                return null;
-              },
-              onSaved: (newValue) {
-                price = double.parse(newValue!);
-              },
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              initialValue: amount.toString(),
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Mahsulot sonini",
-              ),
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return "Iltimos mahsulot sonini kiriting";
-                }
-
-                return null;
-              },
-              onSaved: (newValue) {
-                amount = int.parse(newValue!);
               },
             ),
           ],

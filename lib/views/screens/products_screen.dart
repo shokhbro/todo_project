@@ -31,7 +31,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         );
         setState(() {});
       } catch (e) {
-        print(e);
+        throw Exception("Xatolik");
       }
     }
   }
@@ -108,13 +108,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
           }
           if (!snapshot.hasData) {
             return const Center(
-              child: Text("Mahsulotlar mavjud emas, iltimos qo'shing"),
+              child: Text("Mahsulotlar topilmadi!"),
             );
           }
           final products = snapshot.data;
           return products == null || products.isEmpty
               ? const Center(
-                  child: Text("Mahsulotlar mavjud emas, iltimos qo'shing"),
+                  child: Text("Mahsulotlar mavjud emas!"),
                 )
               : ListView.builder(
                   padding: const EdgeInsets.all(15),
